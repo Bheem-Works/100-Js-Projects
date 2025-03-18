@@ -39,7 +39,7 @@ function  updateTestimonial  ()  {
     }
     setTimeout(()=>{
         updateTestimonial()
-    },3000);
+    },9000);
 };
 
 console.log(updateTestimonial());
