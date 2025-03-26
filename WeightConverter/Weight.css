@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    width: 200px;
+}
+
+#error {
+    color: red;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+#result {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    height: 30px;
+}
+
+@media screen and (max-width:425px) {
+    .container {
+        padding: 15px;
+    }
+}
