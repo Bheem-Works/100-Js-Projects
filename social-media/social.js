@@ -15,3 +15,5 @@ liEls.forEach((liEl) => {
     menuEl.classList.toggle("rotate");
   });
 });
+
+console.log(menuTextel);
