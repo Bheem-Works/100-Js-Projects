@@ -5,6 +5,7 @@ const daysEl = document.querySelector(".days");
 const monthInx = new Date().getMonth();
 const lastDay = new Date(new Date().getFullYear(), monthInx + 1, 0).getDate();
 const firstDay = new Date(new Date().getFullYear(), monthInx, 1).getDay() - 1;
+const mont = new Date().getMonth();
 console.log(lastDay);
 console.log(firstDay);
 
