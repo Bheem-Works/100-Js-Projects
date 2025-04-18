@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Totally Legit Weather Checker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #fceabb, #f8b500);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 2px solid #f8b500;
+    }
+
+    button {
+      background-color: #f8b500;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #f57f17;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #444;
+    }
+
+    .loader {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #f8b500;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media screen and (max-width: 480px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      #result {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🌍 Super Accurate Weather Checker</h1>
+    <p>Type your city and we’ll definitely not prank you 😇</p>
+
+    <input type="text" id="city" placeholder="Enter your city (e.g. Tokyo)">
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function getWeather() {
+      const city = document.getElementById("city").value.trim();
+      const result = document.getElementById("result");
+
+      if (!city) {
+        result.innerHTML = "📢 Hey! Type something. Your keyboard isn’t just for decoration!";
+        return;
+      }
+
+      result.innerHTML = `Scanning satellites for "${city}" <div class="loader"></div>`;
+
+      setTimeout(() => {
+        const fakeUpdates = [
+          `⚡️ Initiating ultra-mega-super weather scan...`,
+          `🛰️ Contacting Martians for weather update...`,
+          `🌪️ Retrieving humidity from the clouds' personal diaries...`,
+          `💨 Analyzing the smell of the wind in ${city}...`,
+        ];
+
+        let i = 0;
+        const interval = setInterval(() => {
+          if (i < fakeUpdates.length) {
+            result.innerHTML = fakeUpdates[i];
+            i++;
+          } else {
+            clearInterval(interval);
+            setTimeout(() => {
+              result.innerHTML = `
+                <p>📡 Weather report for <strong>${city}</strong>:</p>
+                <ul style="text-align: left;">
+                  <li>🌡️ Temperature: Warm-ish to chill-ish</li>
+                  <li>🌫️ Visibility: Depends if you open your eyes</li>
+                  <li>🌧️ Chance of rain: Ask the clouds ☁️</li>
+                  <li>💁‍♂️ Suggestion: Just go outside, bro!</li>
+                </ul>
+                <p><strong>🚨 Final Report: Use your eyes for once! 😂</strong></p>
+                <button onclick="alert('You thought this would work? LOL')" style="margin-top:10px;">Download Weather Update 🌦️</button>
+              `;
+            }, 1500);
+          }
+        }, 1500);
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
