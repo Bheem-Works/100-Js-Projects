@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heartbreak Analyzer 9000™</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: linear-gradient(to right, #ff6a6a, #ffe0e9);
+      font-family: 'Comic Sans MS', cursive;
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(255, 0, 76, 0.4);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #e91e63;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #444;
+    }
+
+    input {
+      padding: 12px;
+      width: 100%;
+      border: 2px dashed #e91e63;
+      border-radius: 10px;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      background: #ff4081;
+      color: white;
+      border: none;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #c2185b;
+    }
+
+    #result {
+      margin-top: 25px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .loader {
+      margin: 15px auto;
+      width: 40px;
+      height: 40px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #ff4081;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media(max-width: 480px) {
+      h1 { font-size: 22px; }
+      p, input, button { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>💔 Heartbreak Analyzer 9000™</h1>
+    <p>Type your Ex's name below. It won't bring them back, but hey...</p>
+    <input type="text" id="exName" placeholder="Enter That Mistake's Name">
+    <button onclick="startRoast()">Begin Emotional Roast</button>
+    <div id="result"></div>
+  </div>
+  <footer style="position: fixed; bottom: 10px; width: 100%; text-align: center; font-size: 12px; color: #888;">
+    🔥 Created by <strong style="color:#ff0055;">VIM</strong> – The Mind Roaster 😈
+  </footer>
+  
+  <script>
+    function startRoast() {
+      const name = document.getElementById("exName").value.trim();
+      const result = document.getElementById("result");
+
+      if (!name) {
+        result.innerHTML = "👀 Even typing the name hurts huh? Coward.";
+        return;
+      }
+
+      result.innerHTML = `
+        <p>Analyzing ${name}...</p>
+        <div class="loader"></div>
+        <p>Accessing suppressed memories...</p>
+      `;
+
+      setTimeout(() => {
+        const deepBurns = [
+  `🧠 "Remember when you typed ‘I miss you’ 17 times and deleted it each time? Yeah, me too, pathetic."`,
+  `💌 "You told her ‘I’ll wait forever’... Bro, it's already been 3 summers. She ain’t even typing back."`,
+  `🎧 "Still playing that sad playlist hoping she’ll magically text back? Turn that off, Romeo."`,
+  `🪞 "You stared at her last seen on WhatsApp for 3 hours. I watched you, bro. That was dark."`,
+  `🔁 "You scrolled through your own chat history… hoping to find where it went wrong. Hint: It was YOU."`,
+  `📝 "You wrote ‘I love you’ in your notes app 43 times. Not even sent. Just pain drafts."`,
+  `🍃 "You whispered her name to the wind like some anime protagonist. The wind didn’t care. Neither did she."`,
+  `📷 "Remember zooming into that group photo she was in… just to see her smile? Bro. Seek help."`,
+  `🧠 "Every time someone says her name, your brain opens a PowerPoint of pain. Let it go."`,
+  `🚪 "You kept the door open hoping she'd return. She came back… for her charger. Not you."`,
+  `🛏️ "Your pillow knows how much you cried. Even it’s trying to move out now."`,
+  `📞 "You practiced the call 6 times. Ended up texting ‘hey’. Bold move."`,
+  `🧍 "You stood under her window at 1AM. You ain't Romeo. You’re just cold now."`,
+  `🕰️ "‘One more chance’ turned into 99 more chances. And guess what? She still ghosted."`,
+  `🧤 "You saved her gloves from winter 2021. Bro, she saved someone else’s heart."`,
+  `🪦 "You said ‘I can’t live without you’. Yet here you are… eating Maggi. Surviving nicely."`
+];
+
+
+        const randomRoast = deepBurns[Math.floor(Math.random() * deepBurns.length)];
+
+        result.innerHTML = `
+          <p>🩺 Final Diagnostic Report for "${name}":</p>
+          <p><strong>${randomRoast}</strong></p>
+          <button onclick="startRoast()">Re-analyze (Get Hurt Again)</button>
+        `;
+      }, 3500);
+    }
+  </script>
+
+</body>
+</html>

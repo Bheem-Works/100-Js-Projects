@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ex Name Detector 🔥</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    h1 {
+      color: #ff0055;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    input {
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      margin-top: 20px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      background-color: #222;
+      color: #eee;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff0055;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff0055;
+    }
+    #result {
+      margin-top: 40px;
+      font-size: 1.3em;
+      white-space: pre-line;
+    }
+    #progressBar {
+      width: 80%;
+      max-width: 300px;
+      height: 20px;
+      margin: 20px auto;
+      background-color: #444;
+      border-radius: 10px;
+    }
+    #progressBar div {
+      height: 100%;
+      background-color: #ff0055;
+      border-radius: 10px;
+    }
+    footer {
+      margin-top: 100px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Type your Ex's Name... if you dare 😈</h1>
+  <input type="text" id="exName" placeholder="Enter their cursed name..." />
+  <br>
+  <button onclick="triggerPain()">Reveal Truth 🔥</button>
+  <div id="result"></div>
+  <div id="progressBar"><div id="progress"></div></div>
+
+  <!-- Sad Violin Music -->
+  <audio id="violin" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Copyright -->
+  <footer>
+    🔥 Created by <strong style="color:#ff0055;">VIM</strong> – Roasting Your Love Life Since 2025
+  </footer>
+
+  <script>
+    const deepBurns = [
+      `🧠 "Remember when you typed ‘I miss you’ 17 times and deleted it each time? Pathetic."`,
+      `💌 "You said ‘I’ll wait forever’… It’s been 3 birthdays, she didn’t even send a cake emoji."`,
+      `🎧 "Sad playlist on repeat? Bro it’s time to upgrade to healing jams."`,
+      `🪞 "You stared at her profile pic like it's a portal to the past. It's not. It's just pixels."`,
+      `📝 "You wrote ‘I love you’ in Notes app. You didn’t even send it. Weak game, bro."`,
+      `🍃 "You whispered her name to the wind… and it blew your dignity away."`,
+      `📷 "Zoomed in on a blurry group pic just to see her? FBI would be proud."`,
+      `🧠 "Her name triggers a full TED Talk in your brain. Time to unsubscribe."`,
+      `🛏️ "Even your pillow is asking for a break. It’s tired of soaking tears."`,
+      `📞 "Practiced that call 6 times. Sent a ‘hey’. Master of hesitation."`,
+      `🚪 "You left the door open for her return. All you got was mosquitoes."`,
+      `🪦 "You said ‘I can’t live without you’. But here you are, alive and simping."`
+    ];
+
+    function triggerPain() {
+      const ex = document.getElementById('exName').value.trim();
+      const result = document.getElementById('result');
+      const progressBar = document.getElementById('progress');
+      const music = document.getElementById('violin');
+      result.innerText = "";
+      progressBar.style.width = "0%";
+      
+      if (!ex) {
+        alert("Bro. Type a name first. Don’t be scared.");
+        return;
+      }
+
+      music.play();
+
+      // Fake loading screen with progress bar
+      let loadingProgress = 0;
+      result.innerText = `Analyzing emotional damage for: ${ex}...\n\nLoading memories... 💔`;
+
+      let progressInterval = setInterval(() => {
+        loadingProgress += 10;
+        progressBar.style.width = `${loadingProgress}%`;
+        if (loadingProgress >= 100) {
+          clearInterval(progressInterval);
+        }
+      }, 500);
+
+      setTimeout(() => {
+        let roast = deepBurns[Math.floor(Math.random() * deepBurns.length)];
+        result.innerText = `💣 Past Version of You Speaks:\n\n"${roast}"`;
+
+        // Flash pop-up roasting truth
+        setTimeout(() => {
+          alert("🔍 FINAL ANALYSIS: You were down bad, bro. Seek healing.");
+        }, 3500);
+
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
