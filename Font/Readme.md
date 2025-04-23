@@ -7,4 +7,8 @@
 3. Font Weight Chager 
 
 ### Demo ScreenShots
-    
+
+
+
+### Process to Create 
+    I have also use the  <b>(module) </b> to make it easy and understandble. And combine it Together. At The main javascirpt file. 
