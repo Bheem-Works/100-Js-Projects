@@ -1,20 +1,26 @@
+// Collection fo the varaibles 
 const container = document.querySelector(".container");
 const inputEl = document.getElementById("input");
 const fontSizeEl = document.querySelector("#fontSize");
 const enterEl = document.querySelector(".enter");
 
 enterEl.addEventListener("click",()=>{
-    const inputElValue = inputEl.value;
-    const list = document.createElement("li");
-    const value = list.innerHTML = inputElValue;
+    const inputElValue = inputEl.value; //Taking the input value;
+    const list = document.createElement("li"); //Creating the list elements
+    const value = list.innerHTML = inputElValue; // inserting the value to the list 
     console.log(value);
-    const fontValue = fontSizeEl.value;
-    // console.log(fontValue);
-    list.style.fontsize = `${fontValue}px`;
-    // const valueText = value.style.fontSize = `${fontValue}px`;
-    container.appendChild(list);
     
+    // To Track the changes of the fontCurrentValue  & Change the Text 
+    fontSizeEl.addEventListener("change",()=>{
+        const fontSizeValue = fontSizeEl.value; // taking the selectSizeEl value ;
+        list.style.fontSize = fontSizeValue;  // Inserting the fontSizeValue to the text 
+        console.log("fontSize",fontSizeValue); 
+    })
+
+    container.appendChild(list); // appending list to the Container 
     
 })
-// const keyPress = (e) => e.key === "Enter" && add(); 
-//This is not workin may be the functionality is wrong
+
+// Note: You can't acess dom directly
+const keyPress = (e) => e.key === "Enter" && enterEl.click(); // enterEl.click () is a Methods  
+inputEl.addEventListener("keypress",keyPress); // when the key  is up the keyPress function will run
