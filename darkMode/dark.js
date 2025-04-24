@@ -5,7 +5,6 @@ const bodyEl = document.querySelector("body");
 
 inputEl.checked = JSON.parse(localStorage.getItem("mode"));
 
-
 updateBody();
 
 function updateBody() {
