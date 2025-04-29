@@ -16,7 +16,7 @@ function setDate() {
     // getting the degree value; 
     const secondDegree = (getSeconds / 60) *360;
     const minuteDegree = (getMinutes / 60) *360;
-            const hourDegree = (getHours / 12) * 360;
+    const hourDegree = (getHours / 12) * 360;
 
     // putting hte degree value into the rotate;
     hourEl.style.transform = `rotate(${hourDegree}deg)`;
