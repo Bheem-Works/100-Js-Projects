@@ -3,6 +3,8 @@ const textInput = document.getElementById('textInput');          // user enters 
 const textOutput = document.getElementById('textOutput');        // shows the decoded binary
 const binaryOutput = document.getElementById('binaryOutput');    // shows binary of entered text
 
+// intial value for number 
+    binaryInput.value = "1101101 1101001 1110011 1101111";
 // binary to text;
 binaryInput.addEventListener('input',()=>{
     let binaryValue = binaryInput.value.trim();
@@ -14,7 +16,8 @@ binaryInput.addEventListener('input',()=>{
     textOutput.innerText = binary || "BinaryValue";
 })
 
-
+// intial value for the text
+textInput.value = "miso";
 // text to binary;
 textInput.addEventListener('input',() => {
     let textValue = textInput.value;
@@ -23,3 +26,16 @@ textInput.addEventListener('input',() => {
     .join(' ');
     binaryOutput.innerText = binaryNumber || "TextValue";
 })
+
+
+// intial value 
+// Check initial value in text input
+window.addEventListener('DOMContentLoaded', () => {
+    if (textInput.value.trim()) {
+        textInput.dispatchEvent(new Event('input'));
+    }
+
+    if (binaryInput.value.trim()) {
+        binaryInput.dispatchEvent(new Event('input'));
+    }
+});
