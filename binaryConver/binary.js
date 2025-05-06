@@ -1,0 +1,2 @@
+// varaibles; 
+const binaryCode
