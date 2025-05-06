@@ -7,7 +7,7 @@ const binaryOutput = document.getElementById('binaryOutput');    // shows binary
 binaryInput.addEventListener('input',()=>{
     let binaryValue = binaryInput.value.trim();
     let binary = binaryValue
-    .split('')
+    .split(' ')
     .map(b=>String.
     fromCharCode(parseInt(b,2)))
     .join('');
@@ -16,8 +16,8 @@ binaryInput.addEventListener('input',()=>{
 
 
 // text to binary;
-textOutput.addEventListener('input',()=>{
-    let textValue = textOutput.value;
+textInput.addEventListener('input',() => {
+    let textValue = textInput.value;
     let binaryNumber = [...textValue]
     .map(char => char.charCodeAt(0).toString(2))
     .join(' ');
