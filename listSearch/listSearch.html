@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Search Page</title>
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: sandybrown;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    max-width: 500px;
+}
+
+.input-txt {
+    /* max-width: 900; */
+    width: 100%;
+    height: 7%;
+    border: 3px solid saddlebrown;
+    border-radius: 3px;
+    /* padding-top: 10px; */
+    margin-top:10px;
+    min-width: 150px;
+    /* max-width: 350px; */
+}
+
+#list li {
+    /* width: 20%; */
+    height: 25px;
+    padding: 10px;
+    list-style: none;
+    background-color: #FFD365;
+    display: block;
+    
+    /* list-style: none; to remove the check marks */
+}
+
+#list li:hover {
+    background-color: #FDFFA9;
+}
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <input type="text" placeholder="Search for a Course" class="input-txt">
+            <br>
+            <ul id="list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>NextJS</li>
+                <li>EthersJS</li>
+                <li>Web3JS</li>
+                <li>Solidity</li>
+                <li>LW3FreeCourses</li>
+                <li>Python</li>
+                <li>Angular</li>
+                <li>Blockchain</li>
+                <li>Scrimba</li>
+                <li>Udemy</li>
+                <li>Youtube</li>
+                <li>Chutiya Colleges ke chutiya courses</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // varaibles store
+        const inputEl = document.querySelector(".input-txt");
+        const listEl = document.querySelectorAll("li");
+
+        inputEl.addEventListener('keyup',searchList);
+
+        function searchList() {
+            const inputValue = inputEl.value;
+
+            for(let i = 0; i<listEl.length;i++) {
+                if(listEl[i].innerHTML.toLowerCase().includes(inputValue)){
+                    listEl[i].style.display = "";
+                } else {
+                    listEl[i].style.display = "none";
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

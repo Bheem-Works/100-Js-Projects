@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: transparent;
+            border: 2px solid black;
+            padding: 20px 20px;
+            border-radius: 10px;
+        }
+        h3{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 25px;
+        }
+        #demo {
+            font-size: 29px;
+            font-family: cursive;
+        }
+        button{
+            cursor: pointer;
+            margin: 5px;
+            text-transform: uppercase;
+            transition: scale 0.4s linear;
+        }
+        button:hover{
+            transform: scale(20px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">    
+        <h3>Counter</h3>
+        <p id="demo">0</p>
+        <button class="increment">increment</button>
+        <button class="reset">reset</button>
+        <button class="decrement">decrement</button>
+    </div>
+        <script src="counter.js"></script>
+</body>
+</html>

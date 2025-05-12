@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .input-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        #input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+        #button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #button:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px 15px;
+            background-color: white;
+            border-left: 4px solid #4CAF50;
+            margin-bottom: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete-btn {
+            background-color: #ff5252;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .delete-btn:hover {
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+        <div class="input-container">
+            <input type="text" id="input" placeholder="Enter a task...">
+            <button id="button">Add</button>
+        </div>
+        <ul id="demo">
+        </ul>
+    </div>
+
+    <script>      
+    // varaibles store 
+    const inputEl = document.querySelector('#input');
+    const buttonEl = document.querySelector('#button');
+    const demoEl = document.querySelector('#demo');
+
+        // page load 
+        window.addEventListener("DOMContentLoaded",()=>{
+            const savedTask = JSON.parse(localStorage.getItem('tasks')) || [];
+            savedTask.forEach(task => {
+                createTaskElement(task)
+            });
+        });
+        //button clicks addeventlistener
+    buttonEl.addEventListener('click',add);
+
+    function add() {
+        const inputValue = inputEl.value.trim();
+
+        // to check if the text enter or not.
+        if(inputValue === "") {
+            alert('please enter the task.')
+        } else {
+            createTaskElement(inputValue);
+            saveToLocalStorage(inputValue);
+            inputEl.value = "";
+            inputEl.focus();
+        }
+    }
+
+
+        function createTaskElement(taskText) {
+            const list = document.createElement('li');
+            list.textContent = taskText;
+            
+            //delete sections 
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent= "Delete";
+            deleteBtn.classList = 'delete-btn';
+            
+            deleteBtn.addEventListener('click',()=>{
+                list.remove();
+                removeFromLocalStorage(taskText);
+            })
+            
+            list.appendChild(deleteBtn);
+            demoEl.appendChild(list);
+         
+        }
+
+    // save task to localStorage
+        function saveToLocalStorage(task) {
+            const tasks = JSON.parse(localStorage.getItem('tasks'))|| [];
+            tasks.push(task);
+            localStorage.setItem('tasks',JSON.stringify(tasks));
+        }
+    // remove from localStorage
+    function removeFromLocalStorage (taskToRemove) {
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks = tasks.filter(task => task !== taskToRemove);
+        localStorage.setItem('tasks',JSON.stringify(tasks))
+    }
+    // when user click the enter add the task
+    inputEl.addEventListener('keyup',(e)=>{
+        if(e.key === "Enter") {
+            add();
+        }
+    })
+    
+    </script>
+</body>
+</html>

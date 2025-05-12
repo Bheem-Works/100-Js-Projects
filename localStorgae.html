@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>// Function to retrieve and log the value from localStorage
+const retrieveName = () => {
+    const storedName = localStorage.getItem('name');
+    console.log('st',storedName);  // Logs the stored value from localStorage
+};
+
+// Function to set a value ('vim') in localStorage and log it every second
+const name = () => {
+    let vim = '';
+    setInterval(() => {
+        if (12 < 20) {
+            vim = 'vim';  // Assign 'vim' to vim
+            console.log(vim);
+
+            // Store the value 'vim' in localStorage
+            localStorage.setItem('name', vim);
+        }
+    }, 1000);
+};
+
+name();  // Start the name function
+retrieveName();  // Retrieve the value after some time
+
+
+    </script>
+</body>
+</html>
