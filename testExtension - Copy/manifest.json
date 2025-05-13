@@ -1,0 +1,11 @@
+{
+  "name": "Vim Extensions",
+  "description": "Base Level Extension",
+  "version": "3",
+  "manifest_version": 3,
+  "action":{
+    "default_popup" : "index.html",
+    "default_logo" : "Brand.jpg"
+  }
+}
+
