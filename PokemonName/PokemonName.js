@@ -1,19 +1,18 @@
-function getRandomPokemonName(){
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=1') // getting the 1 limit value;
-    .then(res => res.json())
-    .then(data => {
-        const count = data.count;
-        const totalCount = Math.floor(Math.random () * count) + 1;
-        return fetch(`https://pokeapi.co/api/v2/pokemon/${totalCount}`)
-    })
-    .then(res => res.json())
-    .then(pokemonName => {
-        const randomName = pokemonName.name;
-        document.getElementById('demo').innerText = `Pokemon Name : ${randomName}`
-    })
-    .catch(error => {
-        alert('Sorry!');
-    })
-}
+async function getRandomPokemonName(){
+    try{
 
-document.getElementById('getName').addEventListener('click',getRandomPokemonName);
+        const url = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1');
+        const data = await url.json();
+        const count = data.count; 
+        
+        const generateRandName = Math.floor(Math.random() * 100) + 1; 
+        const randomNameUrl = await fetch(`https://pokeapi.co/api/v2/pokemon/${generateRandName}`);
+        const randomNameData = await randomNameUrl.json();
+        const randomName = randomNameData.name;
+        document.getElementById('demo').innerText = `Pokemon Name : ${randomName}`;
+    } catch(err){
+        console.error('Error Fetching pokemon name',err);
+    } 
+}
+    
+    document.getElementById('getName').addEventListener('click',getRandomPokemonName);
