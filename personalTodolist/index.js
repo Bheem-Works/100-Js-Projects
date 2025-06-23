@@ -1,0 +1,1 @@
+console.lot(this);

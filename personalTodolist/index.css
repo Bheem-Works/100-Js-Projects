@@ -1,0 +1,39 @@
+body{
+  background-color: black;
+  color:white;
+  align-items: center;
+  text-align:center;
+  justify-content:center;
+  display: flex;
+  min-height: 100vh;
+}
+.container{
+  background-color: purple;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+.mix{
+  display: flex;
+}
+
+#inputTest{
+  width: 200px;
+  height: 20px;
+}
+
+/* for the buttons to make the buttons flex; */ 
+.forButtons{
+  display: flex;
+  gap:5px;
+  padding:10px 10px;
+}
+
+.addButton{
+  background-color: gray;
+  cursor: pointer;
+}
+
+.addButton:hover{
+  background-color: green;
+  transform: scaleX(20px);
+}
