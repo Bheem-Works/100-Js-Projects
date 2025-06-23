@@ -8,12 +8,19 @@ body{
   min-height: 100vh;
 }
 .container{
+  width: 200px;
   background-color: purple;
   padding: 10px 10px;
   border-radius: 10px;
 }
 .mix{
-  display: flex;
+  display:flex;
+  /* flex-direction: column; */
+}
+
+.inputChecBox{
+  background-color:orange;
+  display: block;
 }
 
 #inputTest{
