@@ -13,8 +13,7 @@ body{
     color: white;
     display: flex;
     flex-direction: column;
-    width: 400px;
-    height: 300px;
+    width: 700px;
     /* align-items: center; */
     text-align: start;
     padding: 20px 30px;
